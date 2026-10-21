@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=5.0" />
+  <title>Priyanshu Patil — Engineering Portfolio</title>
+  <meta name="description" content="Portfolio of Priyanshu Patil — Computer Science & Engineering student specialising in embedded hardware, IoT, Edge AI, and environmental monitoring." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Particle Canvas -->
+  <canvas id="particleCanvas" aria-hidden="true"></canvas>
+
+  <div class="page-progress" id="pageProgress" aria-hidden="true"></div>
+
+  <!-- ── NAV ── -->
+  <header class="nav-bar" id="navBar">
+    <div class="nav-inner">
+      <a href="#home" class="nav-brand">PRIYANSHU PATIL</a>
+
+      <button class="nav-mobile-btn" id="mobileBtn" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav-links" id="navLinks" role="navigation" aria-label="Primary navigation">
+        <a href="#home" class="nav-link">Home</a>
+
+        <!-- Work dropdown -->
+        <div class="nav-dropdown">
+          <a href="#work" class="nav-link" aria-haspopup="true">Work</a>
+          <div class="nav-dropdown-menu" role="menu">
+            <a href="#projects" role="menuitem">All Projects</a>
+            <div class="dd-divider"></div>
+            <a href="#projects" data-filter-nav="hardware" role="menuitem">Hardware &amp; IoT</a>
+            <a href="#projects" data-filter-nav="edge-ai" role="menuitem">AI &amp; Software</a>
+            <a href="#projects" data-filter-nav="satellite" role="menuitem">Satellite &amp; Environment</a>
+            <a href="#projects" data-filter-nav="disaster" role="menuitem">Disaster Management</a>
+            <div class="dd-divider"></div>
+            <a href="#field-visit" role="menuitem">Field Visit</a>
+          </div>
+        </div>
+
+        <!-- Research dropdown -->
+        <div class="nav-dropdown">
+          <a href="#research" class="nav-link" aria-haspopup="true">Research</a>
+          <div class="nav-dropdown-menu" role="menu">
+            <a href="#research" data-filter-nav-r="conference" role="menuitem">Conference Papers</a>
+            <a href="#research" data-filter-nav-r="journal" role="menuitem">Journal Papers</a>
+          </div>
+        </div>
+
+        <a href="#patents" class="nav-link">Patents</a>
+
+        <!-- About dropdown -->
+        <div class="nav-dropdown">
+          <a href="#about" class="nav-link" aria-haspopup="true">About</a>
+          <div class="nav-dropdown-menu" role="menu">
+            <a href="#education" role="menuitem">Education</a>
+            <a href="#about" role="menuitem">Technical Interests</a>
+            <a href="#achievements" role="menuitem">Achievements</a>
+          </div>
+        </div>
+
+        <a href="#contact" class="nav-link">Contact</a>
+
+        <a href="assets/Priyanshu_Patil_Resume.pdf" download class="btn btn-dark nav-resume-btn" aria-label="Download Resume PDF">
+          Resume ↓
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ── HERO ── -->
+    <section class="hero" id="home" aria-label="Introduction">
+      <div class="hero-grid">
+
+        <!-- Left -->
+        <div class="hero-left">
+          <h1 class="hero-name"><span class="name-first glitch-text" data-text="PRIYANSHU">PRIYANSHU</span><span class="name-last">PATIL<span class="hero-name-dot">.</span></span></h1>
+          <p class="hero-tagline">
+            Hardware<span class="hero-tagline-dot">·</span>IoT<span class="hero-tagline-dot">·</span>Embedded Systems<span class="hero-tagline-dot">·</span>Edge AI
+          </p>
+          <p class="hero-headline" id="typingHeadline">
+            I build intelligent systems that interact with the real world.
+          </p>
+          <p class="hero-desc">
+            From embedded devices and wireless monitoring to AI-powered systems and satellite analytics, I explore how engineering can solve practical problems.
+          </p>
+          <div class="hero-actions">
+            <a href="#work" class="btn btn-dark">Explore My Work</a>
+            <a href="assets/Priyanshu_Patil_Resume.pdf" download class="btn btn-outline">Download Resume</a>
+          </div>
+          <div class="hero-social">
+            <a href="https://www.linkedin.com/in/priyanshu-patil-838b8a285/" target="_blank" rel="noopener noreferrer" class="hero-social-link" aria-label="LinkedIn Profile">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
+                <circle cx="4" cy="4" r="2"/>
+              </svg>
+              LinkedIn
+            </a>
+            <a href="https://github.com/priyanshuu-06" target="_blank" rel="noopener noreferrer" class="hero-social-link" aria-label="GitHub Profile">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/>
+              </svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- Right — image composite -->
+        <div class="hero-right">
+          <div class="hero-visual" aria-label="Project photograph preview">
+            <!-- Main photo -->
+            <div class="hero-main-frame">
+              <img src="assets/hero/profile.jpeg" alt="Priyanshu Patil — engineering student" class="hero-main-img" loading="eager" />
+              <div class="hero-name-badge" aria-hidden="true">
+                <span class="nb-name">Priyanshu Patil</span>
+                <span class="nb-sub">SIT Nagpur · CSE '28</span>
+              </div>
+            </div>
+            <!-- Preview 1 — Vanrakshak -->
+            <div class="hero-preview hp-1" tabindex="0" role="button" data-target="vanrakshak" aria-label="View Vanrakshak project">
+              <img src="assets/vanrakshak/vanrakshak.1.png" alt="Vanrakshak hardware" />
+              <div class="hero-preview-tip" aria-hidden="true"><span>Vanrakshak</span></div>
+            </div>
+            <!-- Preview 2 — field visit (real image) -->
+            <div class="hero-preview hp-2" tabindex="0" role="button" data-target="field-visit" aria-label="View field visit">
+              <img src="assets/field-visit/van-bhavan-1.jpg" alt="Van Bhavan field visit" />
+              <div class="hero-preview-tip" aria-hidden="true"><span>Field Visit</span></div>
+            </div>
+            <!-- Preview 3 — Vision Stick -->
+            <div class="hero-preview hp-3" tabindex="0" role="button" data-target="projects" aria-label="View Vision Stick">
+              <img src="assets/vision-stick/vision.jpeg" alt="Vision Stick prototype" />
+              <div class="hero-preview-tip" aria-hidden="true"><span>Vision Stick</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── STATS BAR ── -->
+    <div class="stats-bar" aria-label="Key statistics">
+      <div class="stats-inner">
+        <div class="stat-item">
+          <span class="stat-value" data-target="5" data-suffix="">5</span>
+          <span class="stat-label">Engineering Projects</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value" data-target="3" data-suffix="">3</span>
+          <span class="stat-label">Published Patents</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value" data-target="5" data-suffix="">5</span>
+          <span class="stat-label">Research Papers</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value" data-target="2026" data-suffix="">2026</span>
+          <span class="stat-label">Portfolio Year</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── WHAT I BUILD ── -->
+    <section class="dashboard-section" id="work" aria-label="Engineering focus areas">
+      <div class="section-wrap">
+        <div class="sec-header">
+          <p class="sec-label">WHAT I BUILD</p>
+          <h2 class="sec-heading">Four Engineering Domains</h2>
+        </div>
+        <div class="dashboard-tiles">
+
+          <a href="#projects" class="dash-tile" data-filter-target="hardware" aria-label="Hardware and IoT projects">
+            <div class="dash-tile-img">
+              <img src="assets/vanrakshak/vanrakshak.1.png" alt="Hardware prototype work" loading="lazy" />
+            </div>
+            <div class="dash-tile-body">
+              <p class="dash-tile-num">01</p>
+              <p class="dash-tile-title">Hardware &amp; IoT</p>
+              <p class="dash-tile-sub">Embedded Systems · Sensors · Wireless Communication</p>
+            </div>
+            <span class="dash-tile-arrow" aria-hidden="true">→</span>
+          </a>
+
+          <a href="#projects" class="dash-tile" data-filter-target="edge-ai" aria-label="Edge AI and intelligent systems projects">
+            <div class="dash-tile-img">
+              <img src="assets/sanket-edge/sanket.png" alt="Edge AI and intelligent systems" loading="lazy" />
+            </div>
+            <div class="dash-tile-body">
+              <p class="dash-tile-num">02</p>
+              <p class="dash-tile-title">Edge AI &amp; Intelligent Systems</p>
+              <p class="dash-tile-sub">Computer Vision · Edge Processing · TinyML</p>
+            </div>
+            <span class="dash-tile-arrow" aria-hidden="true">→</span>
+          </a>
+
+          <a href="#projects" class="dash-tile" data-filter-target="satellite" aria-label="Satellite and environment projects">
+            <div class="dash-tile-img">
+              <img src="assets/urban-lake/urban.png" alt="Satellite and environmental monitoring" loading="lazy" />
+            </div>
+            <div class="dash-tile-body">
+              <p class="dash-tile-num">03</p>
+              <p class="dash-tile-title">Satellite &amp; Environment</p>
+              <p class="dash-tile-sub">Remote Sensing · NDVI · Environmental Analytics</p>
+            </div>
+            <span class="dash-tile-arrow" aria-hidden="true">→</span>
+          </a>
+
+          <a href="#research" class="dash-tile" aria-label="Research and innovation">
+            <div class="dash-tile-img">
+              <img src="assets/kisan-credit/kisan.jpeg" alt="Research and innovation work" loading="lazy" />
+            </div>
+            <div class="dash-tile-body">
+              <p class="dash-tile-num">04</p>
+              <p class="dash-tile-title">Research &amp; Innovation</p>
+              <p class="dash-tile-sub">Technical Research · Patent Applications · Manuscripts</p>
+            </div>
+            <span class="dash-tile-arrow" aria-hidden="true">→</span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PROJECTS ── -->
+    <section class="projects-section" id="projects" aria-label="Engineering projects">
+      <div class="section-wrap">
+        <div class="sec-header">
+          <p class="sec-label">ENGINEERING WORK</p>
+          <h2 class="sec-heading">Five Projects</h2>
+        </div>
+
+        <div class="proj-filters" role="group" aria-label="Filter projects">
+          <button class="proj-filter active" data-proj-cat="all">All</button>
+          <button class="proj-filter" data-proj-cat="hardware">Hardware &amp; IoT</button>
+          <button class="proj-filter" data-proj-cat="edge-ai">Edge AI</button>
+          <button class="proj-filter" data-proj-cat="satellite">Satellite &amp; Environment</button>
+          <button class="proj-filter" data-proj-cat="disaster">Disaster Management</button>
+        </div>
+
+        <div class="proj-grid" id="projGrid">
+
+          <!-- 01 Vanrakshak -->
+          <article class="proj-card" data-project="vanrakshak" data-cats="hardware edge-ai">
+            <div class="proj-card-img-wrap">
+              <img src="assets/vanrakshak/vanrakshak.1.png" alt="Vanrakshak forest monitoring system" class="proj-card-img" loading="lazy" />
+              <span class="proj-card-num">01</span>
+              <div class="proj-hover-overlay" aria-hidden="true"><span>Explore Project ↗</span></div>
+            </div>
+            <div class="proj-card-body">
+              <p class="proj-card-cat">Embedded Systems · Edge AI · Wireless Communication</p>
+              <h3 class="proj-card-title">Vanrakshak</h3>
+              <p class="proj-card-desc">An intelligent forest-monitoring system combining local sensing, edge-based visual analysis, long-range wireless communication, and centralized alert monitoring.</p>
+              <div class="proj-card-tags">
+                <span class="proj-tag">Raspberry Pi 5</span>
+                <span class="proj-tag">YOLO</span>
+                <span class="proj-tag">LoRa</span>
+                <span class="proj-tag">Python</span>
+                <span class="proj-tag">React</span>
+              </div>
+              <button class="inline-arrow" aria-label="Explore Vanrakshak case study">Explore Vanrakshak →</button>
+            </div>
+          </article>
+
+          <!-- 02 Vision Stick -->
+          <article class="proj-card" data-project="vision-stick" data-cats="hardware">
+            <div class="proj-card-img-wrap">
+              <img src="assets/vision-stick/vision.jpeg" alt="Vision Stick assistive device prototype" class="proj-card-img" loading="lazy" />
+              <span class="proj-card-num">02</span>
+              <div class="proj-hover-overlay" aria-hidden="true"><span>Explore Project ↗</span></div>
+            </div>
+            <div class="proj-card-body">
+              <p class="proj-card-cat">Assistive Technology · Hardware · IoT</p>
+              <h3 class="proj-card-title">Vision Stick</h3>
+              <p class="proj-card-desc">An assistive device combining obstacle sensing and camera-based recognition with audio-haptic feedback for visually impaired navigation.</p>
+              <div class="proj-card-tags">
+                <span class="proj-tag">Raspberry Pi</span>
+                <span class="proj-tag">Ultrasonic</span>
+                <span class="proj-tag">Computer Vision</span>
+                <span class="proj-tag">Python</span>
+              </div>
+              <button class="inline-arrow" aria-label="Explore Vision Stick case study">Explore Vision Stick →</button>
+            </div>
+          </article>
+
+          <!-- 03 Kisan Credit -->
+          <article class="proj-card" data-project="kisan-credit" data-cats="satellite">
+            <div class="proj-card-img-wrap">
+              <img src="assets/kisan-credit/kisan.jpeg" alt="Kisan Credit carbon accounting system" class="proj-card-img" loading="lazy" />
+              <span class="proj-card-num">03</span>
+              <div class="proj-hover-overlay" aria-hidden="true"><span>Explore Project ↗</span></div>
+            </div>
+            <div class="proj-card-body">
+              <p class="proj-card-cat">Satellite Analytics · Blockchain · Carbon Accounting</p>
+              <h3 class="proj-card-title">Kisan-Credit</h3>
+              <p class="proj-card-desc">An agricultural carbon-accounting framework combining land records, satellite-derived vegetation analysis, and blockchain-based settlement.</p>
+              <div class="proj-card-tags">
+                <span class="proj-tag">Blockchain</span>
+                <span class="proj-tag">Google Earth Engine</span>
+                <span class="proj-tag">NDVI</span>
+                <span class="proj-tag">TypeScript</span>
+              </div>
+              <button class="inline-arrow" aria-label="Explore Kisan-Credit case study">Explore Kisan-Credit →</button>
+            </div>
+          </article>
+
+          <!-- 04 Urban Lake -->
+          <article class="proj-card" data-project="urban-lake" data-cats="satellite">
+            <div class="proj-card-img-wrap">
+              <img src="assets/urban-lake/urban.png" alt="Urban lake satellite monitoring analysis" class="proj-card-img" loading="lazy" />
+              <span class="proj-card-num">04</span>
+              <div class="proj-hover-overlay" aria-hidden="true"><span>Explore Project ↗</span></div>
+            </div>
+            <div class="proj-card-body">
+              <p class="proj-card-cat">Satellite Remote Sensing · Environmental Analytics</p>
+              <h3 class="proj-card-title">Urban Lake Monitoring</h3>
+              <p class="proj-card-desc">A reproducible satellite pipeline tracking surface water, vegetation, and dry ground across five urban lakes in Nagpur from 2019 to 2025.</p>
+              <div class="proj-card-tags">
+                <span class="proj-tag">Google Earth Engine</span>
+                <span class="proj-tag">Sentinel-2</span>
+                <span class="proj-tag">NDVI</span>
+                <span class="proj-tag">NDWI</span>
+              </div>
+              <button class="inline-arrow" aria-label="Explore Urban Lake Monitoring case study">Explore Urban Lakes →</button>
+            </div>
+          </article>
+
+          <!-- 05 Sanket Edge — wide -->
+          <article class="proj-card proj-card-wide" data-project="sanket-edge" data-cats="hardware edge-ai disaster">
+            <div class="proj-card-img-wrap">
+              <img src="assets/sanket-edge/sanket.png" alt="Sanket Edge disaster monitoring hardware" class="proj-card-img" loading="lazy" />
+              <span class="proj-card-num">05</span>
+              <span class="proj-card-badge">HACKSAGON 2025</span>
+              <div class="proj-hover-overlay" aria-hidden="true"><span>Explore Project ↗</span></div>
+            </div>
+            <div class="proj-card-body">
+              <p class="proj-card-cat">Edge AI · Embedded Systems · Disaster Management</p>
+              <h3 class="proj-card-title">Sanket Edge</h3>
+              <p class="proj-card-desc">A low-cost, distributed disaster monitoring system — flood detection using TinyML on ESP32, drought monitoring via soil and atmospheric sensors, LoRa inter-node communication, and offline-first local alerts. Built for HACKSAGON 2025.</p>
+              <div class="proj-card-tags">
+                <span class="proj-tag">ESP32</span>
+                <span class="proj-tag">TinyML</span>
+                <span class="proj-tag">LoRa</span>
+                <span class="proj-tag">Edge Impulse</span>
+                <span class="proj-tag">C++</span>
+                <span class="proj-tag">Blynk IoT</span>
+              </div>
+              <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:4px;">
+                <button class="inline-arrow" aria-label="View Sanket Edge case study">View Project →</button>
+                <a href="https://github.com/kanak28T/Sanket_Edge-the-solution-for-Disaster-Management" target="_blank" rel="noopener noreferrer" class="inline-arrow" style="color:var(--blue);" aria-label="View GitHub repository">View GitHub Repository ↗</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Project modal -->
+    <div class="modal-overlay" id="projModal" role="dialog" aria-modal="true" aria-labelledby="modalHeading" hidden>
+      <div class="modal-box">
+        <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close case study">✕</button>
+        <div class="modal-body" id="modalBody"><!-- JS --></div>
+      </div>
+    </div>
+
+    <!-- ── VAN BHAVAN FIELD VISIT ── -->
+    <section class="van-bhavan-section" aria-label="Van Bhavan field visit and context">
+      <div class="section-wrap">
+        <div class="vb-block">
+          <div class="vb-header">
+            <h2 class="vb-title">Real-World Engineering Context</h2>
+            <p class="vb-subtitle">Field Visit to Van Bhavan, Maharashtra State Forest Department</p>
+          </div>
+          <div class="vb-content">
+            <div class="vb-text">
+              <p>Engineering solutions begin with understanding the real-world environment they serve. My visit to Van Bhavan provided crucial context for developing forest monitoring and conservation technologies.</p>
+              <ul class="vb-highlights">
+                <li><strong>Location:</strong> Van Bhavan, Nagpur · Maharashtra State Forest Department</li>
+                <li><strong>Focus:</strong> Forest conservation and fire monitoring systems</li>
+                <li><strong>Application:</strong> Direct input for Vanrakshak project development</li>
+                <li><strong>Impact:</strong> Grounded engineering approach in real environmental challenges</li>
+              </ul>
+            </div>
+            <div class="vb-image">
+              <img src="assets/field-visit/van-bhavan-1.jpg" alt="Van Bhavan field visit" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── VISHWAKARMA AWARDS HIGHLIGHT ── -->
+    <section class="vishwakarma-highlight" aria-label="Vishwakarma Awards 2026-27 Achievement">
+      <div class="section-wrap">
+        <div class="vk-banner">
+          <div class="vk-badge">⭐ STAGE 2 SHORTLIST</div>
+          <h2 class="vk-title">Vishwakarma Awards 2026–27</h2>
+          <p class="vk-subtitle">Design Specification Stage — India's National Hardware Challenge</p>
+          <div class="vk-details">
+            <div class="vk-detail-item">
+              <span class="vk-label">Application ID:</span>
+              <span class="vk-value">VK26-AU-PAI-0099</span>
+            </div>
+            <div class="vk-detail-item">
+              <span class="vk-label">Organizer:</span>
+              <span class="vk-value">Maker Bhavan Foundation</span>
+            </div>
+            <div class="vk-detail-item">
+              <span class="vk-label">Submission Deadline:</span>
+              <span class="vk-value">25 October 2026 · 11:59 PM IST</span>
+            </div>
+          </div>
+          <p class="vk-description">Shortlisted among top engineering teams across India for Stage 2 evaluation. Currently preparing Design Specification presentation for virtual review.</p>
+          <a href="https://www.vishwakarma-awards.org/" target="_blank" rel="noopener noreferrer" class="btn btn-blue">Learn More about Vishwakarma Awards →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── VANRAKSHAK DETAIL ── -->
+    <section class="vanrakshak-section" id="vanrakshak" aria-label="Vanrakshak project detail">
+      <div class="section-wrap">
+        <div class="sec-header">
+          <p class="sec-label">PROJECT DEEP-DIVE</p>
+          <h2 class="sec-heading">VANRAKSHAK</h2>
+          <p class="vanrakshak-sub">Connecting Edge Intelligence with Remote Forest Monitoring.</p>
+        </div>
+
+        <div class="vanrakshak-intro">
+          <p>Vanrakshak explores how forest-fire detection and anti-poaching surveillance can operate effectively in areas with limited or no network connectivity. The system integrates on-device AI inference with long-range LoRa wireless communication to deliver structured alerts without depending on cellular infrastructure.</p>
+        </div>
+
+        <div class="arch-box" aria-label="Vanrakshak system architecture">
+          <div class="arch-flow">
+            <div class="arch-node"><span class="arch-icon" aria-hidden="true">🌲</span><strong>PHYSICAL ENVIRONMENT</strong><small>Forest terrain, fire-risk zones, wildlife corridors</small></div>
+            <div class="arch-arrow" aria-hidden="true">↓</div>
+            <div class="arch-node"><strong>SENSOR LAYER</strong><small>Camera Module · Digital IR Flame Sensor</small></div>
+            <div class="arch-arrow" aria-hidden="true">↓</div>
+            <div class="arch-node hl"><strong>EDGE PROCESSING</strong><small>Raspberry Pi 5 · YOLO Inference · Python</small><span class="arch-tag">Visual Analysis + Sensor Evaluation</span></div>
+            <div class="arch-arrow" aria-hidden="true">↓</div>
+            <div class="arch-node"><strong>LoRa COMMUNICATION</strong><small>Long-range, low-power wireless transmission</small></div>
+            <div class="arch-arrow" aria-hidden="true">↓</div>
+            <div class="arch-node"><strong>GATEWAY</strong><small>Raspberry Pi 5 · LoRa Receiver · Event Logging</small></div>
+            <div class="arch-arrow" aria-hidden="true">↓</div>
+            <div class="arch-node"><strong>MONITORING DASHBOARD</strong><small>React Interface · Alert History · Event Logs</small></div>
+            <div class="arch-arrow" aria-hidden="true">↓</div>
+            <div class="arch-node"><strong>SATELLITE MONITORING LAYER</strong><small>Complementary environmental context — separate analytical pipeline</small><span class="arch-tag">Google Earth Engine · Sentinel-2 · NDVI</span></div>
+          </div>
+        </div>
+
+        <div class="vanrakshak-cols">
+          <div>
+            <h3 class="col-heading">Hardware Components</h3>
+            <ul class="col-list">
+              <li>Raspberry Pi 5 — edge node and gateway</li>
+              <li>LoRa transceiver modules — wireless link layer</li>
+              <li>Camera module — live visual capture</li>
+              <li>Digital IR flame sensor — thermal event detection</li>
+              <li>Power management system</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="col-heading">Software &amp; Technologies</h3>
+            <ul class="col-list">
+              <li>YOLO — real-time fire detection inference</li>
+              <li>Python — edge processing, sensor handling</li>
+              <li>LoRa protocol — low-bandwidth structured alerts</li>
+              <li>React.js — monitoring dashboard</li>
+              <li>Structured event logging and alert classification</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="patent-callout">
+          <p class="patent-callout-tag">Published Patent Application</p>
+          <p class="patent-callout-title">LoRa-Based Real-Time Forest Fire Detection and Poaching Surveillance System</p>
+          <p class="patent-callout-num">Application: 202621092299 A · Published September 2026</p>
+          <a href="#patents" class="inline-arrow">View Patent Record →</a>
+        </div>
+
+        <div>
+          <p class="sec-label">PROJECT PHOTOGRAPHS</p>
+          <div class="vanrakshak-gallery-grid" id="vanrakshakGallery">
+            <div class="gallery-item" data-src="assets/vanrakshak/vanrakshak.1.png" data-title="Vanrakshak Edge Node" data-desc="Raspberry Pi 5 with LoRa module and camera — edge processing unit">
+              <img src="assets/vanrakshak/vanrakshak.1.png" alt="Vanrakshak edge node hardware" onerror="this.parentElement.classList.add('img-ph-sm')" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SIGNAL FLOW ── -->
+    <section class="signal-section" id="signal-flow" aria-label="System pipeline diagram">
+      <div class="section-wrap">
+        <div class="sec-header">
+          <p class="sec-label">SYSTEM THINKING</p>
+          <h2 class="sec-heading">From Physical Signals to Intelligent Decisions</h2>
+        </div>
+        <div role="region" aria-label="Interactive pipeline stages">
+          <div class="signal-stages" role="tablist">
+            <button class="signal-stage-btn active" role="tab" aria-selected="true" aria-controls="signalPanel" data-stage="sensors" id="tab-sensors">
+              <div class="signal-icon" aria-hidden="true">⬡</div>
+              <span class="signal-label">Sensors</span>
+            </button>
+            <button class="signal-stage-btn" role="tab" aria-selected="false" aria-controls="signalPanel" data-stage="edge" id="tab-edge">
+              <div class="signal-icon" aria-hidden="true">◈</div>
+              <span class="signal-label">Edge Processing</span>
+            </button>
+            <button class="signal-stage-btn" role="tab" aria-selected="false" aria-controls="signalPanel" data-stage="wireless" id="tab-wireless">
+              <div class="signal-icon" aria-hidden="true">⌗</div>
+              <span class="signal-label">Wireless Comms</span>
+            </button>
+            <button class="signal-stage-btn" role="tab" aria-selected="false" aria-controls="signalPanel" data-stage="dashboard" id="tab-dashboard">
+              <div class="signal-icon" aria-hidden="true">▦</div>
+              <span class="signal-label">Dashboard</span>
+            </button>
+          </div>
+          <div class="signal-panel" id="signalPanel" role="tabpanel" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── GALLERY ── -->
+    <section class="gallery-section" id="gallery" aria-label="Hardware and project gallery">
+      <div class="section-wrap">
+        <div class="sec-header">
+          <p class="sec-label">PORTFOLIO PHOTOGRAPHS</p>
+          <h2 class="sec-heading">Built, Tested, Explored.</h2>
+        </div>
+        <div class="gallery-filters" role="group" aria-label="Filter gallery">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="hardware">Hardware</button>
+          <button class="filter-btn" data-filter="vanrakshak">Vanrakshak</button>
+          <button class="filter-btn" data-filter="field">Field Visits</button>
+          <button class="filter-btn" data-filter="satellite">Satellite</button>
+          <button class="filter-btn" data-filter="hackathon">Hackathons</button>
+        </div>
+        <div class="gallery-grid" id="mainGallery">
+          <div class="gallery-item gallery-item-lg" data-category="field" data-src="assets/field-visit/van-bhavan-1.jpg" data-title="Van Bhavan Field Visit" data-desc="Visit to Van Bhavan — context for Vanrakshak forest monitoring">
+            <img src="assets/field-visit/van-bhavan-1.jpg" alt="Van Bhavan field visit" loading="eager" />
+            <div class="gallery-cap"><span class="gallery-cap-tag">Field Visit</span><span class="gallery-cap-title">Van Bhavan, Nagpur</span></div>
+          </div>
+          <div class="gallery-item" data-category="hardware" data-src="assets/vision-stick/vision.jpeg" data-title="Vision Stick Work" data-desc="Hardware prototype and engineering work">
+            <img src="assets/vision-stick/vision.jpeg" alt="Hardware work" loading="lazy" />
+            <div class="gallery-cap"><span class="gallery-cap-tag">Hardware</span><span class="gallery-cap-title">Vision Stick</span></div>
+          </div>
+          <div class="gallery-item" data-category="vanrakshak" data-src="assets/vanrakshak/vanrakshak.1.png" data-title="Vanrakshak Edge Node" data-desc="Edge node hardware setup">
+            <img src="assets/vanrakshak/vanrakshak.1.png" alt="Vanrakshak hardware" loading="lazy" />
+            <div class="gallery-cap"><span class="gallery-cap-tag">Vanrakshak</span><span class="gallery-cap-title">Edge Node</span></div>
+          </div>
+          <div class="gallery-item" data-category="hardware" data-src="assets/sanket-edge/sanket.png" data-title="Sanket Edge Setup" data-desc="Sanket Edge disaster monitoring hardware">
+            <img src="assets/sanket-edge/sanket.png" alt="Sanket Edge hardware" loading="lazy" />
+            <div class="gallery-cap"><span class="gallery-cap-tag">Embedded</span><span class="gallery-cap-title">Sanket Edge</span></div>
+          </div>
+          <div class="gallery-item" data-category="satellite" data-src="assets/kisan-credit/kisan.jpeg" data-title="Kisan-Credit Analysis" data-desc="Satellite NDVI analysis output">
+            <img src="assets/kisan-credit/kisan.jpeg" alt="Kisan-Credit analysis" loading="lazy" />
+            <div class="gallery-cap"><span class="gallery-cap-tag">Satellite</span><span class="gallery-cap-title">Kisan-Credit</span></div>
+          </div>
+          <div class="gallery-item" data-category="hackathon" data-src="assets/field-visit/vanbhavab.jpeg" data-title="Field Visit Documentation" data-desc="Research documentation">
+            <img src="assets/field-visit/vanbhavab.jpeg" alt="Field documentation" loading="lazy" />
+            <div class="gallery-cap"><span class="gallery-cap-tag">Achievement</span><span class="gallery-cap-title">Field Documentation</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" hidden>
+      <button class="lb-close" id="lbClose" aria-label="Close viewer">✕</button>
+      <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous">‹</button>
+      <button class="lb-nav lb-next" id="lbNext" aria-label="Next">›</button>
+      <div class="lb-content">
+        <img id="lbImg" src="" alt="" />
+        <div class="lb-caption">
+          <strong id="lbTitle"></strong>
+          <span id="lbDesc"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PATENTS ── -->
+    <section class="patents-section" id="patents" aria-label="Patent applications">
+      <div class="section-wrap">
+        <div class="sec-header">
+          <p class="sec-label">INTELLECTUAL PROPERTY</p>
+          <h2 class="sec-heading">Patents &amp; Invention</h2>
+        </div>
+        <div class="patents-grid" id="patentsGrid"><!-- rendered by JS --></div>
+      </div>
+    </section>
+
+    <!-- ── RESEARCH ── -->
+    <section class="research-section" id="research" aria-label="Research papers">
+      <div class="section-wrap">
+        <div class="sec-header">
+          <p class="sec-label">RESEARCH IN PROGRESS</p>
+          <h2 class="sec-heading">Academic Papers &amp; Manuscripts</h2>
+          <p class="research-intro">Exploring engineering problems through applied research and reproducible technical methods. All papers currently under revision.</p>
+        </div>
+
+        <!-- Tab switcher -->
+        <div class="research-tabs" role="tablist" aria-label="Research categories">
+          <button class="research-tab active" role="tab" aria-selected="true" data-tab="conference" aria-controls="confList">
+            <span class="rtab-icon">📄</span>
+            Conference Papers
+            <span class="rtab-count">3</span>
+          </button>
+          <button class="research-tab" role="tab" aria-selected="false" data-tab="journal" aria-controls="journalList">
+            <span class="rtab-icon">📖</span>
+            Journal Papers
+            <span class="rtab-count">2</span>
+          </button>
+        </div>
+
+        <div class="research-list" id="confList" role="tabpanel" aria-labelledby="tab-conference"><!-- rendered by JS --></div>
+        <div class="research-list" id="journalList" role="tabpanel" aria-labelledby="tab-journal" style="display:none"><!-- rendered by JS --></div>
+      </div>
+    </section>
+
+    <!-- ── ACHIEVEMENTS ── -->
+    <section class="achievements-section" id="achievements" aria-label="Achievements">
+      <div class="section-wrap">
+        <div class="sec-header">
+          <p class="sec-label">RECOGNITION</p>
+          <h2 class="sec-heading">Hackathons &amp; Competitions</h2>
+        </div>
+        <div class="achievements-grid">
+          <article class="achievement-card fade-up">
+            <p class="achievement-rank">⭐ STAGE 2</p>
+            <p class="achievement-event">Vishwakarma Awards 2026–27</p>
+            <h3 class="achievement-title">Design Stage Shortlist</h3>
+            <p class="achievement-project">Application ID: VK26-AU-PAI-0099</p>
+            <p class="achievement-org">Maker Bhavan Foundation · India's National Hardware Challenge</p>
+            <p class="achievement-detail" style="font-size: 12px; color: var(--text-sec); margin-top: 8px; line-height: 1.6;">Shortlisted for Stage 2: Design Specification. Competing in India's premier STEM & design challenge for engineering innovation.</p>
+          </article>
+          <article class="achievement-card fade-up">
+            <p class="achievement-rank">🏆 TOP 10</p>
+            <p class="achievement-event">National Summer Hackathon 2026</p>
+            <h3 class="achievement-title">Best Performance Award</h3>
+            <p class="achievement-project">Project: Kisan-Credit · Team Aether</p>
+            <p class="achievement-org">Organized by Skillstation</p>
+          </article>
+          <article class="achievement-card fade-up">
+            <p class="achievement-rank">🥇 TOP 1%</p>
+            <p class="achievement-event">HACKSAGON 2025 — National Finalist</p>
+            <h3 class="achievement-title">National Finalist</h3>
+            <p class="achievement-project">Project: Sanket Edge · Team Naive Birds</p>
+            <p class="achievement-org">ABV-IIITM Gwalior × IEEE MP Section</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── ABOUT ── -->
+    <section class="about-section" id="about" aria-label="About Priyanshu Patil">
+      <div class="section-wrap">
+        <div class="about-grid">
+          <div>
+            <p class="sec-label">ABOUT</p>
+            <h2 class="sec-heading" style="margin-bottom:24px;">Curious About How Things Work.</h2>
+            <div class="about-photo-wrap">
+              <img src="assets/hero/profile.jpeg" alt="Priyanshu Patil" class="about-photo" loading="lazy" />
+            </div>
+            <p class="about-text">I'm a Computer Science and Engineering student with a strong interest in hardware-oriented engineering, embedded systems, and intelligent connected devices.</p>
+            <p class="about-text">My work brings together physical sensors, microcontrollers, wireless communication, edge AI, and software to explore practical solutions to real-world challenges.</p>
+            <p class="about-text">I'm particularly interested in opportunities that allow me to work close to hardware, experiment with connected systems, and develop reliable engineering solutions.</p>
+          </div>
+          <div>
+            <p class="sec-label" style="margin-bottom:20px;">TECHNICAL INTERESTS</p>
+            <div class="interest-grid">
+              <div class="interest-card fade-up">
+                <span class="interest-num">01</span>
+                <h4>Embedded Hardware</h4>
+                <p>Raspberry Pi, ESP32, Arduino, sensor integration, circuit design, and physical prototyping.</p>
+              </div>
+              <div class="interest-card fade-up">
+                <span class="interest-num">02</span>
+                <h4>IoT &amp; Wireless Systems</h4>
+                <p>LoRa / LPWAN, MQTT, connected-device architectures, long-range communication protocols.</p>
+              </div>
+              <div class="interest-card fade-up">
+                <span class="interest-num">03</span>
+                <h4>Edge AI &amp; Intelligent Sensing</h4>
+                <p>YOLO inference on edge hardware, TinyML, computer vision for environmental monitoring.</p>
+              </div>
+              <div class="interest-card fade-up">
+                <span class="interest-num">04</span>
+                <h4>Environmental Monitoring</h4>
+                <p>Satellite remote sensing, NDVI analytics, Google Earth Engine, urban and forest analysis.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CONTACT ── -->
+    <section class="contact-section" id="contact" aria-label="Contact Priyanshu Patil">
+      <div class="section-wrap">
+        <div class="contact-grid">
+          <div>
+            <p class="sec-label">GET IN TOUCH</p>
+            <h2 class="sec-heading" style="margin-bottom:0;">Let's Build Something Real.</h2>
+            <p class="contact-intro">I'm open to internship opportunities, research collaborations, engineering team discussions, and technical conversations about hardware, embedded systems, IoT, and intelligent sensing.</p>
+            <div class="contact-list">
+              <a href="mailto:priyanshupatil336@gmail.com" class="contact-row">
+                <span class="contact-icon" aria-hidden="true">✉</span>priyanshupatil336@gmail.com
+              </a>
+              <a href="tel:+919529072281" class="contact-row">
+                <span class="contact-icon" aria-hidden="true">↗</span>+91 9529072281
+              </a>
+              <div class="contact-row">
+                <span class="contact-icon" aria-hidden="true">◎</span>Nagpur, Maharashtra, India
+              </div>
+            </div>
+            <div class="contact-btns">
+              <a href="https://www.linkedin.com/in/priyanshu-patil-838b8a285/" target="_blank" rel="noopener noreferrer" class="btn btn-dark">LinkedIn Profile</a>
+              <a href="https://github.com/priyanshuu-06" target="_blank" rel="noopener noreferrer" class="btn btn-outline">GitHub</a>
+              <a href="assets/Priyanshu_Patil_Resume.pdf" download class="btn btn-outline">Download Resume</a>
+            </div>
+          </div>
+          <div>
+            <form class="contact-form" id="contactForm" novalidate>
+              <div class="form-field">
+                <label for="cName">Your Name</label>
+                <input type="text" id="cName" name="name" placeholder="Full name" autocomplete="name" />
+                <span class="form-err" id="errName" role="alert"></span>
+              </div>
+              <div class="form-field">
+                <label for="cEmail">Email Address</label>
+                <input type="email" id="cEmail" name="email" placeholder="your@email.com" autocomplete="email" />
+                <span class="form-err" id="errEmail" role="alert"></span>
+              </div>
+              <div class="form-field">
+                <label for="cSubject">Subject</label>
+                <input type="text" id="cSubject" name="subject" placeholder="Internship / Collaboration / Discussion" />
+                <span class="form-err" id="errSubject" role="alert"></span>
+              </div>
+              <div class="form-field">
+                <label for="cMessage">Message</label>
+                <textarea id="cMessage" name="message" rows="5" placeholder="Your message…"></textarea>
+                <span class="form-err" id="errMessage" role="alert"></span>
+              </div>
+              <button type="submit" class="btn btn-dark btn-full">Send Message</button>
+              <p class="form-note">This form is a client-side demonstration. To contact directly, use the email address above.</p>
+              <div class="form-ok" id="formOk" hidden>
+                <p>✓ Message validated. Please send directly to <a href="mailto:priyanshupatil336@gmail.com">priyanshupatil336@gmail.com</a>.</p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-name">PRIYANSHU PATIL</p>
+      <p class="footer-tagline">Computer Science &amp; Engineering · Embedded Systems · IoT · Edge AI</p>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/priyanshu-patil-838b8a285/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/priyanshuu-06" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="mailto:priyanshupatil336@gmail.com">Email</a>
+        <a href="assets/Priyanshu_Patil_Resume.pdf" download>Resume</a>
+      </div>
+      <p class="footer-copy">© 2026 Priyanshu Patil · Engineering Portfolio</p>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top" hidden>↑</button>
+
+  <!-- Data -->
+  <script src="data/projects.js"></script>
+  <script src="data/research.js"></script>
+  <script src="data/patents.js"></script>
+  <script src="data/certificates.js"></script>
+  <script src="data/github-repos.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
